@@ -1,0 +1,328 @@
+﻿
+@{
+	ViewBag.Title = "UserProfile";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+	ViewBag.Title = "UserProfile";
+}
+
+<div class="container">
+	<div class="row">
+		<div class="col-3">
+			<div class="sticky-top">
+				<div class="list-group flex-column">
+					<a class="btn list-group-item list-group-item-action" href="#HotelToolbar" data-bs-toggle="collapse" role="button" aria-controls="HotelToolbar">Hotel</a>
+					<a class="btn list-group-item list-group-item-action" href="#GuestToolbar" data-bs-toggle="collapse" role="button" aria-controls="GuestToolbar">Guest</a>
+					<a class="btn list-group-item list-group-item-action" href="#RoomToolbar" data-bs-toggle="collapse" role="button" aria-controls="RoomToolbar">Room</a>
+					<a class="btn list-group-item list-group-item-action" href="#BookingToolbar" data-bs-toggle="collapse" role="button" aria-controls="BookingToolbar">Booking</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-9">
+			<div class="row collapse" id="HotelToolbar">
+				<div class="col-4">
+					<div class="card m-2">
+						<div class="card-header">
+							Hotel Revenue
+						</div>
+						<div class="card-body">
+							Hotel Revenue
+						</div>
+						<div class="card-footer">
+							@Html.ActionLink("Hotel Revenue", "GetRevenue", "Hotel",null, new{ @class="btn btn-primary" })
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row collapse" id="GuestToolbar">
+				<div class="row">
+					<div class="col">
+						<div class="card m-2">
+							<div class="card-header">
+								Get All Guests
+							</div>
+							<div class="card-body">
+								Get All Guests
+							</div>
+							<div class="card-footer">
+								@Html.ActionLink("Get All Guests", "GetAllGuests", "Guest",null, new{ @class="btn btn-primary" })
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card m-2">
+							<div class="card-header">
+								GetGuest
+							</div>
+							<div class="card-body">
+								@using (@Html.BeginForm("GetGuest","Guest", FormMethod.Get, new{id="GetGuest"}))
+								{
+									@Html.Editor("id", null, null, new { htmlAttributes = new { @type = "number", @min="1"} })
+								}
+								
+							</div>
+							<div class="card-footer">
+								<a class="btn btn-primary" href="javascript:document.getElementById('GetGuest').submit()">GetGuest</a>
+								@*@Html.ActionLink("Get All Guests", "GetGuest", "Guest", null, new {@class = "btn btn-primary"})*@
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card m-2">
+							<div class="card-header">
+								GetGuestsInHotel
+							</div>
+							<div class="card-body">
+								GetGuestsInHotel
+							</div>
+							<div class="card-footer">
+								@Html.ActionLink("Get Guests In Hotel", "GetGuestsInHotel", "Guest", null, new { @class = "btn btn-primary" })
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="card m-2">
+							<div class="card-header">
+								CreateGuest
+							</div>
+							<div class="card-body">
+								CreateGuest
+							</div>
+							<div class="card-footer">
+								@Html.ActionLink("Create guest", "CreateGuest", "Guest", null, new { @class = "btn btn-primary" })
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card m-2">
+							<div class="card-header">
+								CheckIn
+							</div>
+							<div class="card-body">
+								CheckIn
+							</div>
+							<div class="card-footer">
+								@Html.ActionLink("Check in", "CheckIn", "Guest", null, new { @class = "btn btn-primary" })
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card m-2">
+							<div class="card-header">
+								CheckOut
+							</div>
+							<div class="card-body">
+								CheckOut
+							</div>
+							<div class="card-footer">
+								@Html.ActionLink("Check out", "CheckOut", "Guest", null, new { @class = "btn btn-primary" })
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="card m-2">
+							<div class="card-header">
+								UpdateGuest
+							</div>
+							<div class="card-body">
+								UpdateGuest
+							</div>
+							<div class="card-footer">
+								@Html.ActionLink("Update guest", "UpdateGuest", "Guest", null, new { @class = "btn btn-primary" })
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card m-2">
+							<div class="card-header">
+								DeleteGuest
+							</div>
+							<div class="card-body">
+								DeleteGuest
+							</div>
+							<div class="card-footer">
+								@Html.ActionLink("Delete guest", "DeleteGuest", "Guest", null, new { @class = "btn btn-primary" })
+							</div>
+						</div>
+					</div>
+					<div class="col"></div>
+				</div>
+			</div>
+			<div class="row collapse" id="RoomToolbar">
+				<div class="row">
+					<div class="col">
+						<div class="card m-2">
+							<div class="card-header">
+								GetAllRooms
+							</div>
+							<div class="card-body">
+								GetAllRooms
+							</div>
+							<div class="card-footer">
+								@Html.ActionLink("Get all rooms", "GetAllRooms", "Room", null, new { @class = "btn btn-primary" })
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card m-2">
+							<div class="card-header">
+								GetRoomsInHotel
+							</div>
+							<div class="card-body">
+								GetRoomsInHotel
+							</div>
+							<div class="card-footer">
+								@Html.ActionLink("Get all rooms in hotel", "GetRoomsInHotel", "Room", null, new { @class = "btn btn-primary" })
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card m-2">
+							<div class="card-header">
+								GetRoom
+							</div>
+							<div class="card-body">
+								@using (@Html.BeginForm("GetRoom", "Room", FormMethod.Get, new { id = "GetRoom" }))
+								{
+									@Html.Editor("id", null, null, new { htmlAttributes = new { @type = "number", @min = "1" } })
+								}
+							</div>
+							<div class="card-footer">
+								<a class="btn btn-primary" href="javascript:document.getElementById('GetRoom').submit()">GetRoom</a> 
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="card m-2">
+							<div class="card-header">
+								GetEmptyRoomsForDate
+							</div>
+							<div class="card-body">
+								GetEmptyRoomsForDate
+							</div>
+							<div class="card-footer">
+								@Html.ActionLink("Get Empty Rooms For Date", "GetEmptyRoomsForDate", "Room", null, new { @class = "btn btn-primary" })
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card m-2">
+							<div class="card-header">
+								CreateRoom
+							</div>
+							<div class="card-body">
+								CreateRoom
+							</div>
+							<div class="card-footer">
+								@Html.ActionLink("Create room", "CreateRoom", "Room", null, new { @class = "btn btn-primary" })
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card m-2">
+							<div class="card-header">
+								UpdateRoom
+							</div>
+							<div class="card-body">
+								UpdateRoom
+							</div>
+							<div class="card-footer">
+								@Html.ActionLink("Update room", "UpdateRoom", "Room", null, new { @class = "btn btn-primary" })
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="card m-2">
+							<div class="card-header">
+								DeleteRoom
+							</div>
+							<div class="card-body">
+								DeleteRoom
+							</div>
+							<div class="card-footer">
+								@Html.ActionLink("Delete room", "DeleteRoom", "Room", null, new { @class = "btn btn-primary" })
+							</div>
+						</div>
+					</div>
+					<div class="col"></div>
+					<div class="col"></div>
+				</div>
+			</div>
+			<div class="row collapse" id="BookingToolbar">
+				<div class="row">
+					<div class="col">
+						<div class="card m-2">
+							<div class="card-header">
+								GetAllBookings
+							</div>
+							<div class="card-body">
+								GetAllBookings
+							</div>
+							<div class="card-footer">
+								@Html.ActionLink("GetAllBookings","GetAllBookings","Booking", null, new { @class = "btn btn-primary" })
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card m-2">
+							<div class="card-header">
+								CreateBooking
+							</div>
+							<div class="card-body">
+								Create booking
+							</div>
+							<div class="card-footer">
+								@Html.ActionLink("GetAllBookings", "CreateBooking", "Booking", null, new { @class = "btn btn-primary" })
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card m-2">
+							<div class="card-header">
+								GetUserBookings
+							</div>
+							<div class="card-body">
+								@using (@Html.BeginForm("GetUserBookings", "Booking", FormMethod.Get, new { id = "GetUserBookings" }))
+								{
+									@Html.Editor("email", null, null, new { htmlAttributes = new { @type = "email" } })
+								}
+							</div>
+							<div class="card-footer">
+								<a class="btn btn-primary" href="javascript:document.getElementById('GetUserBookings').submit()">GetUserBookings</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="card m-2">
+							<div class="card-header">
+								GetCurrentUserBookings
+							</div>
+							<div class="card-body">
+								GetCurrentUserBookings
+							</div>
+							<div class="card-footer">
+								@Html.ActionLink("GetAllBookings", "GetCurrentUserBookings", "Booking", null, new { @class = "btn btn-primary" })
+							</div>
+						</div>
+					</div>
+					<div class="col"></div>
+					<div class="col"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

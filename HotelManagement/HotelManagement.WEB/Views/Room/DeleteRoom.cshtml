@@ -1,0 +1,49 @@
+﻿@model HotelManagement.WEB.Models.RoomDeleteModel
+
+@{
+	ViewBag.Title = "DeleteRoom";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DeleteRoom</h2>
+
+
+@using (@Html.BeginForm("DeleteRoom", "Room", FormMethod.Post))
+{
+	<div class="form-group">
+		@Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control", @type = "number", @min="1", @required="true", @value="1"} })
+	</div>
+	<button class="btn btn-primary" type="submit" name="action" value="get">Get room</button>
+
+	if (Model != null && Model.RoomInfo != null)
+	{
+		<div>
+			<table class="table table-hover" style="background-color: orange">
+				<thead>
+					<tr>
+						<th>Hotel</th>
+						<th>Room number</th>
+						<th>Status</th>
+						<th>TypeName</th>
+						<th>Double bed count</th>
+						<th>Single bed count</th>
+						<th>Rate</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>@Model.RoomInfo.HotelName</td>
+						<td>@Model.RoomInfo.RoomNumber</td>
+						<td>@Model.RoomInfo.StatusName</td>
+						<td>@Model.RoomInfo.TypeName</td>
+						<td>@Model.RoomInfo.DoubleBedCount</td>
+						<td>@Model.RoomInfo.SingleBedCount</td>
+						<td>@Model.RoomInfo.RoomRate</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<button class="btn btn-primary" type="submit" name="action" value="delete">Delete</button>
+	}
+}
+

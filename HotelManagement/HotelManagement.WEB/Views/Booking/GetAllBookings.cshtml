@@ -1,0 +1,36 @@
+﻿@model List<HotelManagement.WEB.Models.BookingReturnModel>
+@{
+    ViewBag.Title = "GetAllBookings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetAllBookings</h2>
+<table class="table table-striped">
+	<thead>
+	<tr>
+		<td>Full name</td>
+		<td>Room number</td>
+		<td>From</td>
+		<td>To</td>
+		<td>Adults</td>
+		<td>Children</td>
+		<td>Status</td>
+	</tr>
+	</thead>
+	@foreach (var item in Model)
+	{
+
+		<tbody>
+		<tr>
+			<td>@item.FullName</td>
+			<td>@item.RoomNumber</td>
+			<td>@item.DateFrom</td>
+			<td>@item.DateTo</td>
+			<td>@item.AdultQuantity</td>
+			<td>@item.ChildQuantity</td>
+			<td>@item.Status</td>
+		</tr>
+		</tbody>
+
+	}
+</table>

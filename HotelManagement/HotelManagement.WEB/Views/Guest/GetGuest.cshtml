@@ -1,0 +1,38 @@
+﻿@model HotelManagement.WEB.Models.GuestReturnModel
+@{
+    ViewBag.Title = "GetGuest";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetGuest</h2>
+
+@if (Model != null)
+{
+	<table class="table table-striped">
+		<thead>
+		<tr>
+			<th>FullName</th>
+			<th>Email</th>
+			<th>Birthday</th>
+			<th>Address</th>
+			<th>City</th>
+			<th>Country</th>
+		</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>@Model.FullName</td>
+				<td>@Model.Email</td>
+				<td>@Model.Birthday.ToShortDateString()</td>
+				<td>@Model.Address</td>
+				<td>@Model.City</td>
+				<td>@Model.Country</td>
+			</tr>
+		</tbody>
+	</table>
+}
+else
+{
+	<h2 class="text-danger">Guest was not found</h2>
+}
+

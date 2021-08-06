@@ -1,0 +1,46 @@
+﻿@model HotelManagement.WEB.Models.HotelRevenueModel
+@{
+	ViewBag.Title = "GetRevenue";
+
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetRevenue</h2>
+
+@using (Html.BeginForm("GetRevenue", "Hotel", FormMethod.Post))
+{
+	@Html.ValidationSummary("", new { @class = "text-danger" })
+	<div class="form-group my-2">
+		@Html.LabelFor(m => m.Name)
+		@Html.DropDownListFor(m => m.Id, ViewBag.hotels as SelectList)
+	</div>
+	<div class="form-group my-2">
+		@Html.LabelFor(m => m.Month)
+		@Html.EditorFor(m => m.Month, new { htmlAttributes = new {@min="1", @max="12", @value="5"}})
+	</div>
+	<button class="btn btn-primary" type="submit">Get Revenue</button>
+}
+
+@if (Model != null && Model.HotelRevenue != null)
+{
+	<div>
+		<table class="table table-hover" style="background-color: orange">
+			<thead>
+				<tr>
+					<th>Period</th>
+					<th>Total</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model.HotelRevenue)
+				{
+					<tr>
+						<td>@item.Period.ToString("yyyy MMMM")</td>
+						<td>@item.Total</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+}
+

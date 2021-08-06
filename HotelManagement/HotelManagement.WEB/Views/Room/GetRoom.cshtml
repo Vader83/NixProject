@@ -1,0 +1,42 @@
+﻿@model HotelManagement.WEB.Models.RoomReturnModel
+
+@{
+	ViewBag.Title = "GetRoom";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetRoom</h2>
+
+@if (Model != null)
+{
+	<div>
+		<table class="table table-hover" style="background-color: orange">
+			<thead>
+			<tr>
+				<th>Hotel</th>
+				<th>Room number</th>
+				<th>Status</th>
+				<th>TypeName</th>
+				<th>Double bed count</th>
+				<th>Single bed count</th>
+				<th>Rate</th>
+			</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>@Model.HotelName</td>
+					<td>@Model.RoomNumber</td>
+					<td>@Model.StatusName</td>
+					<td>@Model.TypeName</td>
+					<td>@Model.DoubleBedCount</td>
+					<td>@Model.SingleBedCount</td>
+					<td>@Model.RoomRate</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+}
+else
+{
+	<h2 class="text-danger">Room was not found</h2>
+}

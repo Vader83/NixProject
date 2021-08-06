@@ -1,0 +1,37 @@
+﻿@model List<HotelManagement.WEB.Models.RoomReturnModel>
+@{
+	ViewBag.Title = "GetAllRooms";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetAllRooms</h2>
+
+<div>
+	<table class="table table-hover" style="background-color: orange">
+		<thead>
+			<tr>
+				<th>Hotel</th>
+				<th>Room number</th>
+				<th>Status</th>
+				<th>TypeName</th>
+				<th>Double bed count</th>
+				<th>Single bed count</th>
+				<th>Rate</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>@item.HotelName</td>
+					<td>@item.RoomNumber</td>
+					<td>@item.StatusName</td>
+					<td>@item.TypeName</td>
+					<td>@item.DoubleBedCount</td>
+					<td>@item.SingleBedCount</td>
+					<td>@item.RoomRate</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>

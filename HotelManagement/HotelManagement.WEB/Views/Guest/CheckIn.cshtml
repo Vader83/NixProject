@@ -1,0 +1,17 @@
+﻿@model HotelManagement.WEB.Models.CheckBookingModel
+@{
+    ViewBag.Title = "CheckIn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CheckIn</h2>
+
+@using (Html.BeginForm("CheckIn","Guest",FormMethod.Post, new{}))
+{
+	@Html.ValidationSummary("", new { @class = "text-danger" })
+	<div class="form-group my-2">
+		@Html.DropDownListFor(m => m.GuestId, ViewBag.actualBookings as SelectList)
+	</div>
+	<button class="btn btn-primary" type="submit">Check in</button>
+}
+

@@ -1,0 +1,34 @@
+﻿@model List<HotelManagement.WEB.Models.GuestReturnModel>
+@{
+    ViewBag.Title = "GetGuestsInHotel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetGuestsInHotel</h2>
+<div>
+	<table class="table table-hover" style="background-color: orange">
+		<thead>
+		<tr>
+			<th>Full Name</th>
+			<th>Email</th>
+			<th>Birth date</th>
+			<th>Address</th>
+			<th>City</th>
+			<th>Country</th>
+		</tr>
+		</thead>
+		<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.FullName</td>
+				<td>@item.Email</td>
+				<td>@item.Birthday.ToShortDateString()</td>
+				<td>@item.Address</td>
+				<td>@item.City</td>
+				<td>@item.Country</td>
+			</tr>
+		}
+		</tbody>
+	</table>
+</div>

@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "DeleteGuest";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DeleteGuest</h2>
+
+@using (Html.BeginForm("DeleteGuest","Guest", FormMethod.Post, new{ @class="" }))
+{
+	@Html.ValidationSummary(false, "", new{@class="text-danger"})
+	<div class="form-group">
+		<input type="number" class="form-control my-1" min="1" name="id" value="1"/>
+		<input type="submit" class="form-control btn btn-primary my-1"/>
+	</div>
+	
+}

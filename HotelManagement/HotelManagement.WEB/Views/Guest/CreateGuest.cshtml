@@ -1,0 +1,56 @@
+﻿@model HotelManagement.WEB.Models.GuestCreateModel
+@{
+	ViewBag.Title = "CreateGuest";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CreateGuest</h2>
+
+@using (Html.BeginForm("CreateGuest", "Guest", FormMethod.Post, new { }))
+{
+	@Html.ValidationSummary(null, new { @class = "text-danger" })
+	<div class="row my-2">
+		<div class="form-group col-auto">
+			@Html.LabelFor(model => model.FirstName, new { @class = "form-label" })
+			@Html.TextBoxFor(model => model.FirstName, new { @class = "form-control"})
+		</div>
+		<div class="form-group col-auto">
+			@Html.LabelFor(model => model.LastName, new { @class = "form-label" })
+			@Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
+		</div>
+		<div class="form-group col-auto">
+			@Html.LabelFor(model => model.Patronymic, new { @class = "form-label" })
+			@Html.TextBoxFor(model => model.Patronymic, new { @class = "form-control" })
+		</div>
+	</div>
+	<div class="row my-2">
+		<div class="form-group col-auto">
+			@Html.LabelFor(model => model.Email, new { @class = "form-label" })
+			@Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class="form-control", @type = "email" } })
+		</div>
+		<div class="form-group col-auto">
+			@Html.LabelFor(model => model.Birthday, new { @class = "form-label" })
+			@Html.EditorFor(model => model.Birthday, new { htmlAttributes = new { @class="form-control", @type = "date" } })
+		</div>
+	</div>
+	<div class="row my-2">
+		<div class="form-group col-auto">
+			@Html.LabelFor(model => model.Address, new { @class = "form-label" })
+			@Html.TextBoxFor(model => model.Address, new { @class = "form-control" })
+		</div>
+		<div class="form-group col-auto">
+			@Html.LabelFor(model => model.City, new { @class = "form-label" })
+			@Html.TextBoxFor(model => model.City, new { @class = "form-control" })
+		</div>
+		<div class="form-group col-auto">
+			@Html.LabelFor(model => model.Country, new { @class = "form-label" })
+			@Html.TextBoxFor(model => model.Country, new { @class = "form-control" })
+		</div>
+	</div>
+	<div class="row my-2">
+		<div class="form-group col-auto">
+			<button class="btn btn-primary" type="submit">Create</button>
+		</div>
+	</div>
+	
+}
